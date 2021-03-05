@@ -7,52 +7,22 @@ class OnBoard extends Component {
           <Fragment>
               <Container className='TopSection' >
                   <Row className='p-2'>
-                      <Col lg={12} md='12' sm={12} xs={12} className='shadow-sm mt-2 bg-white'>
+                      <Col lg={6} md={6} sm={6} xs={6} className='shadow-sm mt-2 bg-white'>
                           <Form className='onBoardForm'>
-                              <h4 className='section-title'>USER SING IN</h4>
-                              <h6 className="section-sub-title">Please Enter Your Mobile No, And Go Next</h6>
+                              <h4 className='section-title text-center'>USER SING IN</h4>
+                              <h6 className="section-sub-title text-center">Please Enter Your Mobile No, And Go Next</h6>
                               <input className="form-control m-2" type="text" placeholder="Mobile Number"/>
-                              <Button className="btn btn-block m-2 site-btn">Next</Button>
+                              <Button className="btn btn-block m-2 mt-3 site-btn">Next</Button>
 
                           </Form>
 
                       </Col>
-
-                  </Row>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <Row className='d-flex justify-content-center'>
-                      <Col className='BetweenTwoSection' md={6} lg={6} sm={8} xs={12}>
-                          <Card >
-
-                              <Card.Body>
-                                  <Card.Title>Card Title</Card.Title>
-                                  <Form>
-                                      <Form.Group controlId="formBasicEmail">
-                                          <Form.Label>Moblile Number</Form.Label>
-                                          <Form.Control type="Text" placeholder="Enter Your Phone Number" />
-
-                                      </Form.Group>
-
-                                  </Form>
-                                  <Button variant="primary">Next</Button>
-                              </Card.Body>
-                          </Card>
-
+                      <Col className=' p-0 m-0 'lg={6} md={6} sm={6} xs={6}>
+                          <img className='onBoardBanner' src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1a.H.PRr0gK0jSZFnXXbRRXXa.jpg_2200x2200Q100.jpg"/>
                       </Col>
+
                   </Row>
+
               </Container>
 
           </Fragment>

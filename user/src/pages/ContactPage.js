@@ -9,12 +9,16 @@ import Collection from "../components/home/Collection";
 import Categorys from "../components/home/Categorys";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
-import OnBoard from "../components/common/OnBoard";
+import Contact from "../components/common/Contact";
 
-class UserOnBoardPage extends Component {
-    componentDidMount(){
-        window.scroll(0,0)
-    }
+class ContactPage extends Component {
+
+
+        componentDidMount(){
+            window.scroll(0,0)
+        }
+
+
     render() {
         return (
            <Fragment>
@@ -27,7 +31,7 @@ class UserOnBoardPage extends Component {
                    <NavMenuMobile/>
                </div>
 
-                 <OnBoard/>
+                 <Contact/>
 
                <div className='Desktop'>
                    <FooterDesktop/>
@@ -42,4 +46,4 @@ class UserOnBoardPage extends Component {
     }
 }
 
-export default UserOnBoardPage;
+export default ContactPage;

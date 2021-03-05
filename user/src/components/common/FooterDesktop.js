@@ -1,6 +1,7 @@
 import React, {Component ,Fragment} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import AbstractNav from "react-bootstrap/AbstractNav";
+import { Link } from 'react-router-dom';
 
 class FooterDesktop extends Component {
     render() {
@@ -20,7 +21,7 @@ class FooterDesktop extends Component {
                             <Col className='p-2' lg={3} md={3} sm={6} xs={12}>
                                 <h5 className='footer-menu-title '>THE COMPANY</h5>
                                 <a href='' className='footer-link'>About us</a>
-                                <a href='' className='footer-link'>Contact us</a>
+                                <Link to= '/contact' href='' className='footer-link'>Contact us</Link>
                                 <a href='' className='footer-link'>Our Team</a>
                                 <h5 className='footer-menu-title mt-3'>OFFICE ADDRESS</h5>
                                 <p>192 SatarKulRoad, Uttor Budda,Dhaka-1212 01818-103397 (Help-Line-01818-103397)</p>
