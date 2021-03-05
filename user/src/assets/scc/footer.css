@@ -1,0 +1,24 @@
+.footer-menu-title{
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #000000;
+}
+.footer-link{
+    text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #000000;
+    display: block;
+}
+.footer-link:hover{
+    color: #59A869;
+    text-decoration: none !important;
+}
+.footer-menu-title{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #000000;
+}
