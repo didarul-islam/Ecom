@@ -7,6 +7,10 @@ class AppRoute extends Component {
     render() {
         return (
 
+
+
+
+
             <Fragment>
                     <Switch>
 
