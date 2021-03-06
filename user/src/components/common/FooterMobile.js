@@ -29,8 +29,16 @@ class FooterMobile extends Component {
                             <a href=''><i className='fab m-1 h4 fa-instagram'></i></a>
                             <a href=''><i className='fab m-1 h4 fa-twitter'></i></a>
 
+                           
+
+
                         </Col>
+                       
                     </Row>
+
+                    <p className='mt-1'>Change Language</p>
+                     <p className='mt-3' id='google_translate_element'></p>
+                    
                 </Container>
                 <Container fluid={true} className='footer pt-3 pb-1 bg-dark'>
                     <Container>
@@ -41,6 +49,8 @@ class FooterMobile extends Component {
 
                         </Row>
                     </Container>
+
+                   
 
                 </Container>
 

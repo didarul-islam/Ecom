@@ -3,9 +3,9 @@ import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
-import Notification from '../components/notification/Notification';
+import Favourite from '../components/favourite/Favourite';
 
-class NotificationPage extends Component {
+export default class FavouritePage extends Component {
     componentDidMount(){
         window.scroll(0,0)
     }
@@ -22,7 +22,7 @@ class NotificationPage extends Component {
                     <NavMenuMobile/>
                 </div>
 
-                <Notification/>
+                    <Favourite/>
 
 
                 <div className='Desktop'>
@@ -37,5 +37,3 @@ class NotificationPage extends Component {
         );
     }
 }
-
-export default NotificationPage;

@@ -38,11 +38,20 @@ class FooterDesktop extends Component {
                                 <h5 className='footer-menu-title'>DOWNLOAD APP</h5>
                                 <a><img className="" src="https://hatil.com/sites/default/files/Apple%20sign.png"/></a><br/>
                                 <a><img className="mt-2" src="https://hatil.com/sites/default/files/Android%20sign.png"/></a>
+                                <p className='mt-1'>Change Language</p>
+                                <p className='mt-3' id='google_translate_element'></p>
+
+
 
                             </Col>
                         </Row>
 
+                        
+                    
+
                     </Container>
+
+                    
                     <Container fluid={true} className='pt-3 pb-1 bg-dark'>
                         <Container>
                             <Row className='px-0'>
@@ -52,6 +61,8 @@ class FooterDesktop extends Component {
 
                             </Row>
                         </Container>
+
+                       
 
                     </Container>
 

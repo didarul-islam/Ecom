@@ -43,6 +43,10 @@ class NavMenuMobile extends Component {
                     <a href="" className="btn"> <img className="nav-logo" src="http://demo.ecom.rabbil.com/static/media/BigExpress.432afd37.png"/></a>
                     <Button className="cart-btn"><i className="fa fa-shopping-cart"></i> 4 items </Button>
 
+                    <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i>  <sup><span className="badge text-white bg-danger">4</span></sup></Link>
+                    <Link to="/notifaction" className="btn"><i className="fa h4  fa-bell"></i> <sup><span className="badge text-white bg-danger">4</span></sup></Link>
+                    <Link className="btn"><i className="fa h4 fa-search"></i>  </Link>
+
                 </Navbar>
 
                 <div  className={this.state.sideNavState}>

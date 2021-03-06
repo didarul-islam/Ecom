@@ -17,3 +17,16 @@ body {
 .TopSection{
     margin-top: 68px;
 }
+
+/* .goog-te-benner-fram{
+    top: initial;
+    bottom: 0;
+    display: none;
+} */
+
+
+.goog-te-banner-frame{
+    top: initial;
+    bottom: 0;
+    display: none;
+}
