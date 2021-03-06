@@ -20,9 +20,8 @@ class FooterDesktop extends Component {
                             </Col>
                             <Col className='p-2' lg={3} md={3} sm={6} xs={12}>
                                 <h5 className='footer-menu-title '>THE COMPANY</h5>
-                                <a href='' className='footer-link'>About us</a>
+                                <Link to='/about' href='' className='footer-link'>About us</Link>
                                 <Link to= '/contact' href='' className='footer-link'>Contact us</Link>
-                                <a href='' className='footer-link'>Our Team</a>
                                 <h5 className='footer-menu-title mt-3'>OFFICE ADDRESS</h5>
                                 <p>192 SatarKulRoad, Uttor Budda,Dhaka-1212 01818-103397 (Help-Line-01818-103397)</p>
 
@@ -30,9 +29,9 @@ class FooterDesktop extends Component {
                             </Col>
                             <Col className='p-2' lg={3} md={3} sm={6} xs={12}>
                                 <h5 className='footer-menu-title'>MORE INFO</h5>
-                                <a href='' className='footer-link'>How to Purchase</a>
-                                <a href='' className='footer-link'>Privacy Policy</a>
-                                <a href='' className='footer-link'>Refund Policy</a>
+                                <Link to='/purchase' href='' className='footer-link'>How to Purchase</Link>
+                                <Link to='/policy' href='' className='footer-link'>Privacy Policy</Link>
+                                <Link to='/refund' href='' className='footer-link'>Refund Policy</Link>
 
                             </Col>
                             <Col className='p-2' lg={3} md={3} sm={6} xs={12}>

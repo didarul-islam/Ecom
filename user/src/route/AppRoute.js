@@ -3,6 +3,10 @@ import {Route, Switch} from "react-router";
 import HomePage  from "../pages/HomePage";
 import UserOnBoardPage from "../pages/UserOnBoardPage";
 import ContactPage from '../pages/ContactPage'
+import PolicyPage from '../pages/PolicyPage'
+import RefundPage from '../pages/RefundPage'
+import PurchasePage from '../pages/PurchasePage'
+import AboutPage from "../pages/AboutPage";
 
 class AppRoute extends Component {
     render() {
@@ -18,6 +22,10 @@ class AppRoute extends Component {
                         <Route exact path ='/' component={HomePage}></Route>
                         <Route exact path ='/onboard' component={UserOnBoardPage}></Route>
                         <Route exact path ='/contact' component={ContactPage}></Route>
+                        <Route exact path ='/policy' component={PolicyPage}></Route>
+                        <Route exact path ='/refund' component={RefundPage}></Route>
+                        <Route exact path ='/purchase' component={PurchasePage}></Route>
+                        <Route exact path ='/about' component={AboutPage}></Route>
                     </Switch>
 
             </Fragment>
