@@ -19,7 +19,7 @@ class NavMenuDesktop extends Component {
                     </Col>
                     <Col className="p-1" lg={4} md={4} sm={12} xs={12}>
                         <a className="btn"><i className="fa h4 fa-heart"></i>  <sup><span className="badge text-white bg-danger iconColor">4</span></sup></a>
-                        <a className="btn"><i className="fa h4  fa-bell"></i> <sup><span className="badge text-white bg-danger iconColor">4</span></sup></a>
+                        <Link to='/notifaction' className="btn"><i className="fa h4  fa-bell"></i> <sup><span className="badge text-white bg-danger iconColor">4</span></sup></Link>
                         <a className="btn"><i className="fa h4 fa-mobile-alt"></i> </a>
                         <Link to= '/onboard' className="h4 btn">LOGIN</Link>
                     </Col>
