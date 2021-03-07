@@ -41,7 +41,7 @@ class NavMenuMobile extends Component {
                 <Navbar fluid={"true"} className="fixed-top shadow-sm p-2 m-0 bg-white">
                     <a onClick={this.MenuBarClickHandeler} className=" mx-2 navbar-brand"><i className="fa fa-bars"></i></a>
                     <a href="" className="btn"> <img className="nav-logo" src="http://demo.ecom.rabbil.com/static/media/BigExpress.432afd37.png"/></a>
-                    <Button className="cart-btn"><i className="fa fa-shopping-cart"></i> 4 items </Button>
+                    <Link to='/cart' className="cart-btn"><i className="fa fa-shopping-cart"></i> 4 items </Link>
 
                     <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i>  <sup><span className="badge text-white bg-danger">4</span></sup></Link>
                     <Link to="/notifaction" className="btn"><i className="fa h4  fa-bell"></i> <sup><span className="badge text-white bg-danger">4</span></sup></Link>
