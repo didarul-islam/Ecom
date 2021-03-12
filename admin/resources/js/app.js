@@ -1,0 +1,1 @@
+require('../ReactApp/index');
