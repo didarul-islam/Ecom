@@ -5,11 +5,11 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ecommerce Admin</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}";
+    <link rel="stylesheet" href="{{asset('css/app.css')}}"/>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/app.jsx')}}"></script>
 </body>
 </html>
