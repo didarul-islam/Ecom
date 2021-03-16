@@ -1,145 +1,102 @@
 import React, {Component ,Fragment} from 'react';
 import {Col, Container,Row,Card} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import axios from "axios";
+import ApiURL from "../../api/ApiURL";
+import FeatureProductLoader from "../placeholder/FeatureProductLoader";
 
 class FeaturedProduct extends Component {
+
+
+    constructor() {
+        super();
+        this.state={
+            ProductData:[],
+            isLoading:'BetweenTwoSection',
+            MainDiv:'d-none'
+        }
+    }
+
+    componentDidMount() {
+
+        axios.get(ApiURL.ProductListByRemark("FEATURED")).then(response=> {
+            this.setState({ProductData:response.data,isLoading:'d-none',MainDiv:''})
+
+        }).catch(error=> {
+
+
+
+        });
+    }
+
+
+
+
     render() {
+
+        const MyList=this.state.ProductData
+        const MyView=MyList.map((ProductList,i)=>{
+
+
+            if(ProductList.special_price=='NA'){
+                return  <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
+                    <Link to={'ProductDetails/'+ProductList.product_code}>
+                        <Card className="card h-100 w-100  image-box ">
+                            <img src={ProductList.image}/>
+                            <Card.Body>
+                                <h5 className="product-name-on-card">{ProductList.title}</h5>
+                                <p className="product-price-on-card">Price:{ ProductList.price}TK</p>
+
+                            </Card.Body>
+                        </Card>
+
+                    </Link>
+
+                </Col>
+
+            }else {
+                return  <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
+                    <Card className="card  w-100  image-box ">
+                        <Link to={'ProductDetails/'+ProductList.product_code}>
+                            <Card className="card h-100 w-100  image-box ">
+                                <img src={ProductList.image}/>
+                                <Card.Body>
+                                    <h5 className="product-name-on-card">{ProductList.title }</h5>
+                                    <p className="product-price-on-card">
+                                        Price: <strike class="text-secondary">{ ProductList.price}TK</strike>  { ProductList.special_price}TK
+                                    </p>
+                                </Card.Body>
+                            </Card>
+
+                        </Link>
+                    </Card>
+                </Col>
+
+            }
+
+
+
+
+
+        })
+
+
+
+
         return (
             <Fragment>
-                <Container fluid={true} className='text-center'>
-                    <h4 className="section-title">FEATURED PRODUCTS</h4>
-                    <h6 className="section-sub-title pb-3">Some Of Our Exclusive Collection, You May Like</h6>
-                    <Row>
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Link to='/productDetails'>
-                                <Card className="card w-100 image-box ">
-                                    <img src="https://static-01.daraz.com.bd/p/66ec675d545eeabf8eb04415318d3db5.jpg_400x400q75-product.jpg"/>
-                                    <Card.Body>
-                                        <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                        <p className="product-price-on-card">Price: 3000TK</p>
-                                    </Card.Body>
-                                </Card>
-                            </Link>
+                <FeatureProductLoader isLoading={this.state.isLoading}/>
+                <div className={this.state.MainDiv}>
+                    <Container fluid={true} className='text-center BetweenTwoSection'>
+                        <h4 className="section-title">FEATURED PRODUCTS</h4>
+                        <h6 className="section-sub-title pb-3">Some Of Our Exclusive Collection, You May Like</h6>
+                        <Row>
+                            {MyView}
+                        </Row>
+                    </Container>
 
-                        </Col>
+                </div>
 
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Link to='/productDetails'>
-                                <Card className="card  w-100  image-box ">
-                                    <img src="https://static-01.daraz.com.bd/p/a640d8fb382be82b13cadcedf1fcb390.jpg_400x400q75-product.jpg"/>
-                                    <Card.Body>
-                                        <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                        <p className="product-price-on-card">Price: 3000TK</p>
-                                    </Card.Body>
-                                </Card>
-
-                            </Link>
-
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e83135c4f08dba766d539651fb79d2fa.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e46a1751b58cd1bfc97c6c9bfb7a8721.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e46a1751b58cd1bfc97c6c9bfb7a8721.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e83135c4f08dba766d539651fb79d2fa.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card w-100 image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/66ec675d545eeabf8eb04415318d3db5.jpg_400x400q75-product.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/a640d8fb382be82b13cadcedf1fcb390.jpg_400x400q75-product.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e83135c4f08dba766d539651fb79d2fa.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e46a1751b58cd1bfc97c6c9bfb7a8721.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e46a1751b58cd1bfc97c6c9bfb7a8721.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-                        <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
-                            <Card className="card  w-100  image-box ">
-                                <img src="https://static-01.daraz.com.bd/p/e83135c4f08dba766d539651fb79d2fa.jpg_400x400q75.jpg"/>
-                                <Card.Body>
-                                    <h5 className="product-name-on-card">ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-
-
-                    </Row>
-                </Container>
 
             </Fragment>
         );

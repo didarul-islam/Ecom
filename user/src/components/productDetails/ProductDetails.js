@@ -1,33 +1,68 @@
 import React, {Component,Fragment} from 'react';
 import {Col, Container,Row} from "react-bootstrap";
+import ReactHtmlParser from "react-html-parser";
+import ReactDom from 'react-dom'
 
 class ProductDetails extends Component {
+
+    imgOnClick(event){
+        let imgClik=event.target.getAttribute('src')
+        let PreviewImg=document.getElementById('PreviewImg')
+        ReactDom.findDOMNode(PreviewImg).setAttribute('src',imgClik)
+
+    }
+
+
+
     render() {
+        let ProductData=this.props.ProductData
+        let title =ProductData['ProductList'][0]['title'];
+        let price =ProductData['ProductList'][0]['price'];
+        let special_price =ProductData['ProductList'][0]['special_price'];
+        let image =ProductData['ProductList'][0]['image'];
+        let category =ProductData['ProductList'][0]['category'];
+        let subcategory =ProductData['ProductList'][0]['subcategory'];
+        let remark =ProductData['ProductList'][0]['remark'];
+        let brand =ProductData['ProductList'][0]['brand'];
+        let star =ProductData['ProductList'][0]['star'];
+        let product_code =ProductData['ProductList'][0]['product_code'];
+
+        let img1 =ProductData['ProductDetails'][0]['img1'];
+        let img2 =ProductData['ProductDetails'][0]['img2'];
+        let img3 =ProductData['ProductDetails'][0]['img3'];
+        let img4 =ProductData['ProductDetails'][0]['img4'];
+        let des =ProductData['ProductDetails'][0]['des'];
+        let color =ProductData['ProductDetails'][0]['color'];
+        let size =ProductData['ProductDetails'][0]['size'];
+        let details =ProductData['ProductDetails'][0]['details'];
+
+
+
         return (
             <Fragment>
-                <Container className='BetweenTwoSection'>
+                <Container className='BetweenTwoSection container-fluid'>
                         <Row className='p-2'>
                             <Col className='shadow-sm pb-3 mt-4 bg-white' lg={12} md={12} sm={12} xs={12}>
                                 <Row>
                                     <Col className='p-3' lg={6} md={6} sm={12} xs={12}>
-                                        <img className="w-100" src='images/1.jpg'/>
+                                        <img id='PreviewImg' className="w-100" src={img1}/>
 
                                         <Container className='my-3'>
                                             <Row>
-                                                <Col className='m-0 p-0' lg={3} md={3} sm={3} xs={3}>
-                                                    <img className="w-100" src="images/1.jpg"/>
+                                                <Col className='m-0 p-0 image-box' lg={3} md={3} sm={3} xs={3}>
+                                                    <img onClick={this.imgOnClick} className="w-100 product-sm-img" src={img1}/>
 
                                                 </Col>
-                                                <Col className='m-0 p-0' lg={3} md={3} sm={3} xs={3}>
-                                                    <img className="w-100" src="images/2.jpg"/>
+                                                <Col className='m-0 p-0 image-box' lg={3} md={3} sm={3} xs={3}>
+                                                    <img onClick={this.imgOnClick} className="w-100 product-sm-img" src={img2}/>
 
                                                 </Col>
-                                                <Col className='m-0 p-0' lg={3} md={3} sm={3} xs={3}>
-                                                    <img className="w-100" src="images/3.jpg"/>
+                                                <Col className='m-0 p-0 image-box' lg={3} md={3} sm={3} xs={3}>
+                                                    <img onClick={this.imgOnClick} className="w-100 product-sm-img" src={img3}/>
 
                                                 </Col>
-                                                <Col className='m-0 p-0' lg={3} md={3} sm={3} xs={3}>
-                                                    <img className="w-100" src="images/5.jpg"/>
+                                                <Col className='m-0 p-0 image-box' lg={3} md={3} sm={3} xs={3}>
+                                                    <img onClick={this.imgOnClick} className="w-100 product-sm-img" src={img4}/>
 
                                                 </Col>
                                             </Row>
@@ -36,8 +71,8 @@ class ProductDetails extends Component {
 
                                     </Col>
                                     <Col className='p-3' lg={6} md={6} sm={12} xs={12}>
-                                        <h5 className='product-name'>ASUS TUF A15 FA506IU Ryzen 7 4800H GTX</h5>
-                                        <h6 className='section-sub-title'>Some Of Our Exclusive Collection, You May Like Some Of Our Exclusive Collectio</h6>
+                                        <h5 className='product-name'>{title}</h5>
+                                        <h6 className='section-sub-title'>{des}</h6>
                                         <div className='input-group'>
                                             <div className='product-price-card d-inline'>
                                                 Reguler Price 200
@@ -94,8 +129,7 @@ class ProductDetails extends Component {
                                 <Row>
                                     <Col className="" md={6} lg={6} sm={12} xs={12}>
                                         <h6 className="mt-5">DETAILS</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation</p>
+                                        {ReactHtmlParser(details)}
                                     </Col>
                                     <Col className="" md={6} lg={6} sm={12} xs={12}>
                                         <h6 className="mt-2">REVIEWS</h6>

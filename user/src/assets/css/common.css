@@ -30,3 +30,12 @@ body {
     bottom: 0;
     display: none;
 }
+.Link{
+    text-decoration: none !important;
+}
+.Link.hover{
+    text-decoration: none !important;
+}
+.ph-item{
+    border: none !important;
+}
