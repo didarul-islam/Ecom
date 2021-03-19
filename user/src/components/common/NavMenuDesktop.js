@@ -1,8 +1,43 @@
 import React, {Component ,Fragment} from 'react';
 import {Button, Col, Container, Navbar, Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class NavMenuDesktop extends Component {
+
+
+
+        constructor(){
+            super();
+            this.state={
+                SearchKey:'',
+                SerchReDirectStatus:false
+            }
+            this.OnSearchHandelar=this.OnSearchHandelar.bind(this)
+            this.SearchOnClick=this.SearchOnClick.bind(this)
+            this.SerchRedirect=this.SerchRedirect.bind(this)
+        }
+
+        OnSearchHandelar(event){
+            let SearchKey=event.target.value
+            this.setState({SearchKey:SearchKey})
+           
+        }
+
+        SearchOnClick(){
+           
+            if(this.state.SearchKey.length>=2){
+                this.setState({SerchReDirectStatus:true})
+            }
+        }
+
+        SerchRedirect(){
+            if(this.state.SerchReDirectStatus===true){
+                return <Redirect to={'/ProductListBySearch/'+this.state.SearchKey}/>
+            }
+
+        }
+
+
     render() {
         return (
             <Container fluid={"true"} className="fixed-top shadow-sm p-2 m-0 bg-white">
@@ -13,8 +48,8 @@ class NavMenuDesktop extends Component {
                     </Col>
                     <Col className="p-1" lg={4} md={4} sm={12} xs={12}>
                         <div className="input-group w-100">
-                            <input type="text" className="form-control" aria-label="Text input with segmented dropdown button"/>
-                            <button type="button" className="btn site-btn"><i className="fa fa-search"></i></button>
+                            <input onChange={this.OnSearchHandelar} type="text" className="form-control" aria-label="Text input with segmented dropdown button"/>
+                            <button onClick={this.SearchOnClick}  type="button" className="btn site-btn"><i className="fa fa-search"></i></button>
                         </div>
                     </Col>
                     <Col className="p-1" lg={4} md={4} sm={12} xs={12}>
@@ -24,6 +59,7 @@ class NavMenuDesktop extends Component {
                         <Link to= '/onboard' className="h4 btn">LOGIN</Link>
                     </Col>
                 </Row>
+                {this.SerchRedirect()}
             </Container>
         );
     }

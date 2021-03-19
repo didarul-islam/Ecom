@@ -4,6 +4,8 @@ import axios from 'axios';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import ApiURL from "../../api/ApiURL";
 import {toast, ToastContainer} from "react-toastify";
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import { Link } from 'react-router-dom';
 class Policy extends Component {
     constructor() {
         super();
@@ -45,6 +47,13 @@ class Policy extends Component {
         return (
             <Fragment>
                 <Container className="TopSection">
+
+                <Breadcrumb>
+                        <Breadcrumb.Item><Link to='/'>Home</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item ><Link to='/policy'>Policy</Link> </Breadcrumb.Item>
+                        
+                </Breadcrumb>
+
                     <Row>
                         <Col className="mt-2" md={12} lg={12} sm={12} xs={12}>
                             <Card className={this.state.loaderDiv}>

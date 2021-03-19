@@ -1,12 +1,15 @@
-import React, {Component,Fragment} from 'react';
-import {Card, Col, Container,Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import React, { Component,Fragment } from 'react'
+import {Card, Col, Container, Row} from "react-bootstrap";
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import { Link } from 'react-router-dom';
 
-class ListByCategory extends Component {
-    render() {
+
+
+export default class SearchList extends Component {
+    render(){
 
         const MyList=this.props.ProductData
-        const Category=this.props.Category
+        const SearchKey=this.props.SearchKey
         const MyView=MyList.map((ProductList,i)=>{
             if(ProductList.special_price=='NA'){
                 return  <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
@@ -45,8 +48,12 @@ class ListByCategory extends Component {
          return (
           <Fragment>
               <Container fluid={true} className='text-center TopSection'>
+              <Breadcrumb>
+                        <Breadcrumb.Item><Link to='/'>Home</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item ><Link to={"/ProductListBySearch/"+SearchKey}>Search Result for:{SearchKey}</Link> </Breadcrumb.Item>
+                        
+                </Breadcrumb>
                   
-                  <h4 className='section-title'>{Category}</h4>
                   <Row>
                       {MyView}
                   </Row>
@@ -55,5 +62,3 @@ class ListByCategory extends Component {
         );
     }
 }
-
-export default ListByCategory;

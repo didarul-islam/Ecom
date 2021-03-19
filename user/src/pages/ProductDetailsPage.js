@@ -9,6 +9,7 @@ import axios from "axios";
 import ApiURL from "../api/ApiURL";
 import ProductDetailsPlaceholder from "../components/placeholder/ProductDetailsPlaceholder";
 
+
 class ProductDetailsPage extends Component {
 
     constructor({match}) {

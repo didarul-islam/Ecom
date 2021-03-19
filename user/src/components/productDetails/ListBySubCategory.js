@@ -1,9 +1,10 @@
 import React, {Component,Fragment} from 'react';
 import {Card, Col, Container, Row} from "react-bootstrap";
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import {Link} from "react-router-dom";
 
 class ListBySubCategory extends Component {
-    product_code;
+    
     render() {
         const MyList=this.props.ProductData;
         const SubCategory=this.props.SubCategory;
@@ -44,6 +45,12 @@ class ListBySubCategory extends Component {
         return (
             <Fragment>
                 <Container className="text-center TopSection" fluid={true}>
+                    
+                <Breadcrumb>
+                        <Breadcrumb.Item><Link to='/'>Home</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item ><Link to={"/ProductListBySubCategory/"+Category+"/"+SubCategory}>{SubCategory}</Link> </Breadcrumb.Item>
+                        
+                </Breadcrumb>
                     <h4 className="section-title">{SubCategory}</h4>
                     <Row>
                         {MyView}

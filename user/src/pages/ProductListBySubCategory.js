@@ -52,7 +52,7 @@ class ProductListBySubCategory extends Component {
                 <ProductListLoader isLoading={this.state.isLoading}/>
                 <div className={this.state.MainDiv}>
                     <ListBySubCategory Category={this.state.Category}
-                                    ProductData={this.state.ProductData}/>
+                    SubCategory={this.state.SubCategory}ProductData={this.state.ProductData}/>
                 </div>
 
 

@@ -8,6 +8,7 @@ import  './assets/css/fontawesome.css';
 import  './assets/css/animate.min.css';
 import './assets/css/placeholder-loading.min.css'
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

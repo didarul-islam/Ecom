@@ -7,6 +7,7 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\CategoryDetailsController;
 use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::get('/ProductListBySubCategory/{Category}/{SubCategory}',[ProductListCont
 Route::get('/ProductListByCategory/{Category}',[ProductListController::class,'ProductListByCategory']);
 Route::get('/SendSliderInfo',[SliderController::class,'SendSliderInfo']);
 Route::get('/ProductDetails/{code}',[ProductDetailsController::class,'ProductDetails']);
+Route::get('NotificationHistory',[NotificationController::class,'NotificationHistory']);
+Route::get('/ProductBySearch/{key}',[ProductListController::class,'ProductBySearch']);
+
 
 
 

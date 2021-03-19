@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProductDetailsModel;
 use App\Models\ProductListModel;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\returnArgument;
 
 class ProductDetailsController extends Controller
 {

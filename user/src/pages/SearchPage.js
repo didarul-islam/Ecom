@@ -1,29 +1,33 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component,Fragment } from 'react'
+import SearchList from '../components/productDetails/SearchList';
+import axios from 'axios';
+import ApiURL from "../api/ApiURL";
 import NavMenuDesktop from "../components/common/NavMenuDesktop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import FooterDesktop from "../components/common/FooterDesktop";
 import FooterMobile from "../components/common/FooterMobile";
-import ListByCategory from "../components/productDetails/ListByCategory";
-import axios from "axios";
-import ApiURL from "../api/ApiURL";
 import ProductListLoader from "../components/placeholder/ProductListLoader";
+import ListByCategory from "../components/productDetails/ListByCategory";
 
 
-class ProductListByCategory extends Component {
+
+export default class SearchPage extends Component {
+
 
     constructor({match}) {
         super();
         this.state={
-            Category:match.params.Category,
+            SearchKey:match.params.SearchKey,
             ProductData:[],
             isLoading:'',
             MainDiv:'d-none'
         }
     }
 
+
     componentDidMount(){
         window.scroll(0,0)
-        axios.get(ApiURL.ProductListByCategory(this.state.Category)).then(response=> {
+        axios.get(ApiURL.ProductListBySearch(this.state.SearchKey)).then(response=> {
             this.setState({ProductData:response.data,isLoading:'d-none',MainDiv:''})
 
         }).catch(error=> {
@@ -51,8 +55,8 @@ class ProductListByCategory extends Component {
 
                 <ProductListLoader isLoading={this.state.isLoading}/>
                     <div className={this.state.MainDiv}>
-                        <ListByCategory Category={this.state.Category}
-                                        ProductData={this.state.ProductData}/>
+                        <SearchList SearchKey={this.state.SearchKey}
+                         ProductData={this.state.ProductData}/>
                     </div>
 
 
@@ -67,7 +71,6 @@ class ProductListByCategory extends Component {
 
             </Fragment>
         );
+        
     }
 }
-
-export default ProductListByCategory;
